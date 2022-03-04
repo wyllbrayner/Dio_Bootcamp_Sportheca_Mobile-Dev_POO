@@ -5,6 +5,10 @@ public class cliente {
         return nome;
     }
     public void setNome(String nome) {
-        this.nome = nome;
+        if (this.nome != null) {
+            System.out.println("Não é possível reatribuir uma conta já criada.");
+        } else {
+            this.nome = nome;
+        }
     }
 }

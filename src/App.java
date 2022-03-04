@@ -4,6 +4,7 @@ public class App {
         c1.setNome("Fulano de Tal");
         cliente c2 = new cliente();
         c2.setNome("Beltrano o Tal");
+        c2.setNome("Ciclano o Tal");
 
         contaCorrente ccorr1 = new contaCorrente(c1);
         contaPoup cpoup1 = new contaPoup(c1);
@@ -19,6 +20,7 @@ public class App {
         cpoup1.transferir(5, ccorr2);
         ccorr2.sacar(200);
         cpoup1.sacar(10);
+        ccorr1.sacar(20);
 
         ccorr1.imprimirExtrato();
         cpoup1.imprimirExtrato();

@@ -1,7 +1,7 @@
 public abstract class conta implements iConta {
-    private static final int AGENCIA_PADRAO = 1;
+    private static final String AGENCIA_PADRAO = "0001";
     private static int SEQUENCIAL = 1;
-    protected int agencia;
+    protected String agencia;
     protected int numero;
     protected double saldo;
     protected cliente cliente;
@@ -12,14 +12,20 @@ public abstract class conta implements iConta {
         this.cliente = nomeCliente;
     }
 
+/*
+    Melhorias:
+    01 - Antes de realizar o saque, testamos se o saldo da conta possui o valor desejado.
+    02 - Criamos mensagens personalizadas para informar se a transação foi executada.
+*/
+
     @Override
     public boolean sacar(double valor) {
-        if (this.saldo > valor) {
+        if (this.saldo >= valor) {
             this.saldo -= valor;
             System.out.println("Saque no valor de " + valor + " realizado com sucesso na conta " + this.getNumero() + ".");
             return true;
         } else {
-            System.out.println("Saldo insuficiente para realizar o saque desejado.");            
+            System.out.println("Saldo atual de R$ " + this.saldo + " é insuficiente para realizar o saque de R$ " + valor + " desejado.");         
             return false;          
         }
     }
@@ -40,12 +46,12 @@ public abstract class conta implements iConta {
 
     protected void imprimirInfoComuns() {
         System.out.println("Titular: " + this.cliente.getNome());
-        ///        System.out.println("Agencia: " + this.agencia);
+        System.out.println("Agencia: " + this.agencia);
         System.out.println("Numero:  " + this.numero);
         System.out.println("Saldo:   " + this.saldo);
     }
 
-    public int getAgencia() {
+    public String getAgencia() {
         return agencia;
     }
 
@@ -56,16 +62,4 @@ public abstract class conta implements iConta {
     public double getSaldo() {
         return saldo;
     }
-
-/*
-    public void sacar() {
-        
-    }
-    public void depositar() {
-
-    }
-    public void transferir() {
-
-    }
-*/
 }
