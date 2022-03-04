@@ -3,7 +3,7 @@ public class App {
         cliente c1 = new cliente();
         c1.setNome("Fulano de Tal");
         cliente c2 = new cliente();
-        c2.setNome("Wyll");
+        c2.setNome("Beltrano o Tal");
 
         contaCorrente ccorr1 = new contaCorrente(c1);
         contaPoup cpoup1 = new contaPoup(c1);

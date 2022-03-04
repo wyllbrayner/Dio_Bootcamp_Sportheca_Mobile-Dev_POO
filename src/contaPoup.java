@@ -9,9 +9,4 @@ public class contaPoup extends conta {
         super.imprimirInfoComuns();
     }
 
-/*    @Override
-    public void sacar(double valor) {
-        System.out.println("Operação não autorizada neste tipo de conta.");            
-    }
-*/
 }
